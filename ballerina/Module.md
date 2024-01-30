@@ -27,10 +27,10 @@ import ballerinax/redis;
 
 ### Step 2: Create a new connector instance
 
-To access a Redis datasource, you must first create a `client` object. Create a client of the redis client type (
-i.e. `redis:Client`) and provide the necessary connection parameters.
-This creates a connection/pool of connections to the given Redis database. A method for creating a client with a Redis
-client can be found below.
+To access a Redis server, you need to create a client object of the `redis:Client` type, providing the required
+connection parameters. This establishes a connection or pool of connections to the specified Redis server. 
+
+Below is a code sample which creates a client object using `redis:ConnectionConfig`.
 
  ```ballerina
 redis:ConnectionConfig redisConfig = {
@@ -51,6 +51,7 @@ redis:Client redis = check new (redisConfig);
 ### Step 3: Invoke connector operation
 
 1. You can insert a value for a specific key as follows.
+
  ```ballerina
  string setResult = check redis->set("Project", "Ballerina");
  ```
